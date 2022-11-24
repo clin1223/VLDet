@@ -1,0 +1,15 @@
+_BASE_: "Base-C2_L_R5021k_640b64_4x.yaml"
+MODEL:
+  WITH_CAPTION: False
+  ROI_BOX_HEAD:
+    USE_ZEROSHOT_CLS: True
+    ZEROSHOT_WEIGHT_PATH: 'datasets/cc3m/VLDet/googlecc_nouns_6250_emb.pth' 
+    DETECTION_WEIGHT_PATH: 'datasets/cc3m/VLDet/lvis_1203_cls_emb.pth'
+    ZEROSHOT_WEIGHT_DIM: 1024
+  SHARE_PROJ_V_DIM: 1024
+  SHARE_PROJ_L_DIM: 1024
+SOLVER:
+  IMS_PER_BATCH: 8
+DATASETS:
+  TRAIN: ("lvis_v1_train_norare",)
+

@@ -1,0 +1,53 @@
+_BASE_: "Base_OVCOCO_C4_1x.yaml"
+MODEL:
+  SHARE_PROJ_V_DIM: 2048
+  WEIGHTS: "models/coco_base.pth"
+  WITH_CAPTION: True
+  SYNC_CAPTION_BATCH: False
+  SHARE_PROJ_L_DIM: 1024
+  ROI_HEADS:
+    NUM_CLASSES: 65 
+  ROI_BOX_HEAD:
+    WS_NUM_PROPS: 32
+    ADD_IMAGE_BOX: True
+    NEG_CAP_WEIGHT: 1.0
+    OT_LOSS_WEIGHT: 0.01
+    USE_CAPTION: True
+    USE_OT: 'contrastive'
+    ZEROSHOT_WEIGHT_PATH: 'datasets/coco/VLDet/coco_nouns_4764_emb.pth' 
+    DETECTION_WEIGHT_PATH: 'datasets/coco/VLDet/coco_65_cls_emb.pth'
+    CAT_FREQ_PATH: 'datasets/coco/zero-shot/instances_train2017_seen_2_del_cat_info.json' 
+    ZEROSHOT_WEIGHT_DIM: 1024
+    CAPTION_WEIGHT: 1.0
+SOLVER:
+  IMS_PER_BATCH: 32
+  BASE_LR: 0.02
+  STEPS: (60000, 80000)
+  CHECKPOINT_PERIOD: 10000
+  MAX_ITER: 90000
+  CLIP_GRADIENTS:
+    ENABLED: True
+DATASETS:
+  TRAIN: ("coco_zeroshot_train_del", "coco_caption_nouns_train_4764tags",) 
+  TEST: ("coco_generalized_del_val",)
+INPUT:
+  CUSTOM_AUG: ResizeShortestEdge
+  MIN_SIZE_TRAIN_SAMPLING: range
+  MIN_SIZE_TRAIN: (800, 800)
+DATALOADER:
+  SAMPLER_TRAIN: "MultiDatasetSampler"
+  DATASET_RATIO: [1, 4]
+  USE_DIFF_BS_SIZE: True
+  DATASET_BS: [2, 8]
+  USE_RFS: [False, False]
+  DATASET_MIN_SIZES: [[800, 800], [400, 400]]
+  DATASET_MAX_SIZES: [1333, 667]
+  FILTER_EMPTY_ANNOTATIONS: False
+  MULTI_DATASET_GROUPING: True
+  DATASET_ANN: ['box', 'caption']
+  NUM_WORKERS: 8
+WITH_IMAGE_LABELS: True
+OUTPUT_DIR: output/test
+FP16: True
+TEST:
+  EVAL_PERIOD: 10000

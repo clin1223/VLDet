@@ -1,0 +1,38 @@
+MODEL:
+  META_ARCHITECTURE: "CustomRCNN"
+  RPN:
+    PRE_NMS_TOPK_TEST: 6000
+    POST_NMS_TOPK_TEST: 1000
+  ROI_HEADS:
+    NUM_CLASSES: 65
+    NAME: "CustomRes5ROIHeads"
+  SHARE_PROJ_V_DIM: 2048
+  SHARE_PROJ_L_DIM: 1024
+  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  RESNETS:
+    DEPTH: 50
+  ROI_BOX_HEAD:
+    CLS_AGNOSTIC_BBOX_REG: True
+    USE_SIGMOID_CE: True
+    USE_ZEROSHOT_CLS: True
+    ZEROSHOT_WEIGHT_PATH: 'datasets/coco/VLDet/coco_nouns_4764_emb.pth' 
+    DETECTION_WEIGHT_PATH: 'datasets/coco/VLDet/coco_65_cls_emb.pth'
+    IGNORE_ZERO_CATS: True
+    CAT_FREQ_PATH: 'datasets/coco/zero-shot/instances_train2017_seen_2_del_cat_info.json' 
+    ZEROSHOT_WEIGHT_DIM: 1024
+DATASETS:
+  TRAIN: ("coco_zeroshot_train_del",)
+  TEST: ("coco_generalized_del_val",)
+SOLVER:
+  IMS_PER_BATCH: 16
+  BASE_LR: 0.02
+  STEPS: (60000, 80000)
+  MAX_ITER: 90000
+  CHECKPOINT_PERIOD: 10000
+INPUT:
+  MIN_SIZE_TRAIN: (800,)
+VERSION: 2
+OUTPUT_DIR: output/release_base_coco
+FP16: True
+TEST:
+  EVAL_PERIOD: 10000
