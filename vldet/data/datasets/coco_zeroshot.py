@@ -136,7 +136,6 @@ for key, (image_root, json_file, cat) in _PREDEFINED_SPLITS_COCO.items():
 _CUSTOM_SPLITS_COCO = {
     "cc3m_coco_train_tags": ("cc3m/training/", "cc3m/train_image_for_coco_info_tags.json"),
     "sbu_coco_train_tags": ("sbu/training/", "sbu/train_image_for_coco_info_tags.json"),
-    "cc3m_train_4764tags": ("cc3m/training/", "cc3m/Olive/regionclip_train_image_info_4764tags.json"),
     "sbu_train_4764tags": ("sbu/training/", "sbu/regionclip_captions_train2017_4764tags.json"),
     "coco_caption_nouns_train_4764tags": ("coco/train2017", "coco/VLDet/nouns_captions_train2017_4764tags_allcaps.json"),}
 
