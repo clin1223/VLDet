@@ -3,7 +3,7 @@
 <p align="center"> <img src='docs/readme.jpeg' align="center" height="200px"> </p>
 
 > [**Learning Object-Language Alignments for Open-Vocabulary Object Detection**](https://arxiv.org/abs/2211.14843),               
-> Chuang Lin, Peize Sun, Yi Jiang, Ping Luo, Lizhen Qu, Gholamreza Haffari, Zehuan Yuan, Jianfei Cai
+> Chuang Lin, Peize Sun, Yi Jiang, Ping Luo, Lizhen Qu, Gholamreza Haffari, Zehuan Yuan, Jianfei Cai,
 > *arXiv technical report ([https://arxiv.org/abs/2211.14843](https://arxiv.org/abs/2211.14843))*   
 
 ## Installation
