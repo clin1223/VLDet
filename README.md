@@ -6,6 +6,10 @@
 > Chuang Lin, Peize Sun, Yi Jiang, Ping Luo, Lizhen Qu, Gholamreza Haffari, Zehuan Yuan, Jianfei Cai,    
 > *arXiv technical report ([https://arxiv.org/abs/2211.14843](https://arxiv.org/abs/2211.14843))*   
 
+## Highlight
+
+We are excited to announce that our paper was accepted to ICLR 2023! 🥳🥳🥳
+
 ## Installation
 
 ### Requirements
@@ -72,6 +76,13 @@ Download the trained network weights [here](https://drive.google.com/drive/folde
 ## Citation
 
 If you find this project useful for your research, please use the following BibTeX entry.
+
+@article{VLDet,
+  title={Learning Object-Language Alignments for Open-Vocabulary Object Detection},
+  author={Lin, Chuang and Sun, Peize and Jiang, Yi and Luo, Ping and Qu, Lizhen and Haffari, Gholamreza and Yuan, Zehuan and Cai, Jianfei},
+  journal={arXiv preprint arXiv:2211.14843},
+  year={2022}
+}
 
 ## Acknowledgement
 This repository was built on top of [Detectron2](https://github.com/facebookresearch/detectron2), [Detic](https://github.com/facebookresearch/Detic.git), [RegionCLIP](https://github.com/microsoft/RegionCLIP.git) and [OVR-CNN](https://github.com/alirezazareian/ovr-cnn). We thank for their hard work.
