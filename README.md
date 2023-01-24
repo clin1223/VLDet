@@ -4,11 +4,26 @@
 
 > [**Learning Object-Language Alignments for Open-Vocabulary Object Detection**](https://arxiv.org/abs/2211.14843),               
 > Chuang Lin, Peize Sun, Yi Jiang, Ping Luo, Lizhen Qu, Gholamreza Haffari, Zehuan Yuan, Jianfei Cai,    
-> *arXiv technical report ([https://arxiv.org/abs/2211.14843](https://arxiv.org/abs/2211.14843))*   
+> *ICLR 2023 ([https://arxiv.org/abs/2211.14843](https://arxiv.org/abs/2211.14843))*   
 
 ## Highlight
 
 We are excited to announce that our paper was accepted to ICLR 2023! 🥳🥳🥳
+
+## Performance
+
+### Open-Vocabulary on COCO
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/6366788/214261751-3007d40c-5a5d-4efd-8acd-7f6a4ea62ce3.png" width=68%>
+<p>
+
+
+### Open-Vocabulary on LVIS
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/6366788/214262298-ab2de22b-910a-44ba-9bc5-f0df6e4d5e14.png" width=68%>
+<p>
 
 ## Installation
 
@@ -77,12 +92,14 @@ Download the trained network weights [here](https://drive.google.com/drive/folde
 
 If you find this project useful for your research, please use the following BibTeX entry.
 
+```
 @article{VLDet,
   title={Learning Object-Language Alignments for Open-Vocabulary Object Detection},
   author={Lin, Chuang and Sun, Peize and Jiang, Yi and Luo, Ping and Qu, Lizhen and Haffari, Gholamreza and Yuan, Zehuan and Cai, Jianfei},
   journal={arXiv preprint arXiv:2211.14843},
   year={2022}
 }
+```
 
 ## Acknowledgement
 This repository was built on top of [Detectron2](https://github.com/facebookresearch/detectron2), [Detic](https://github.com/facebookresearch/Detic.git), [RegionCLIP](https://github.com/microsoft/RegionCLIP.git) and [OVR-CNN](https://github.com/alirezazareian/ovr-cnn). We thank for their hard work.
