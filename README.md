@@ -10,6 +10,13 @@
 
 We are excited to announce that our paper was accepted to ICLR 2023! 🥳🥳🥳
 
+
+## A quick explainable video demo for VLDet
+
+
+https://user-images.githubusercontent.com/6366788/218620999-1eb5c5eb-0479-4dcc-88ca-863f34de25a0.mp4
+
+
 ## Performance
 
 ### Open-Vocabulary on COCO
