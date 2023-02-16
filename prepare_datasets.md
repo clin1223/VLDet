@@ -100,7 +100,7 @@ cc3m/
 Run the following command to download the images and convert the annotations to LVIS format (Note: download images takes long).
 
 ~~~
-python tools/download_cc.py --ann datasets/cc3m/GCC-training.tsv --save_image_path datasets/cc3m/training/ --out_path datasets/cc3m/train_image_info.json
+python tools/download_cc.py --ann datasets/cc3m/GCC-training.tsv --save_image_path datasets/cc3m/training/ --out_path datasets/cc3m/train_image_info_tags.json
 ~~~
 
 This creates `datasets/cc3m/train_image_info_tags.json`.
