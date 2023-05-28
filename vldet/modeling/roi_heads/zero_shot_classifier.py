@@ -69,6 +69,10 @@ class ZeroShotClassifier(nn.Module):
             self.zs_weight = nn.Parameter(zs_weight)
         else:
             self.register_buffer('zs_weight', zs_weight)
+        
+        if detection_weight_path == 'rand':
+            self.detection_weight = nn.Parameter(detection_weight)
+        else:
             self.register_buffer('detection_weight', detection_weight)
 
         assert self.detection_weight.shape[1] == num_classes + 1, self.detection_weight.shape
