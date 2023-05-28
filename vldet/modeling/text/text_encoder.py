@@ -171,11 +171,23 @@ class CLIPTEXT(nn.Module):
         return features
 
 
-def build_text_encoder(pretrain=True):
-    text_encoder = CLIPTEXT()
+def build_text_encoder(pretrain=True, visual_type="ViT-B/32"):
+    clip_dict = {
+        "visual_type": ["embed_dim", "context_length", "vocab_size",
+                        "transformer_width", "transformer_heads", "transformer_layers"],
+        "RN50":        [1024, 77, 49408, 512, 8, 12],
+        "ViT-B/32":    [512, 77, 49408, 512, 8, 12],
+    }
+    text_encoder = CLIPTEXT(**{k: v for k, v in zip(clip_dict['visual_type'], clip_dict[visual_type])})
     if pretrain:
         import clip
-        pretrained_model, _ = clip.load("ViT-B/32", device='cpu')
+        if visual_type == 'RN50':
+            pretrained_model, _ = clip.load("RN50", device='cpu')
+        elif visual_type == 'ViT-B/32':
+            pretrained_model, _ = clip.load("ViT-B/32", device='cpu')
+        else:
+            raise NotImplementedError
+
         state_dict = pretrained_model.state_dict()
         to_delete_keys = ["logit_scale", "input_resolution", \
         "context_length", "vocab_size"] + \
@@ -185,8 +197,8 @@ def build_text_encoder(pretrain=True):
                 del state_dict[k]
         print('Loading pretrained CLIP')
         text_encoder.load_state_dict(state_dict)
-    # import pdb; pdb.set_trace()
     return text_encoder
+
 
 class my_tokenizer():
     def __init__(self):
